@@ -57,19 +57,6 @@ class VkAuth
 
 
 	#
-	# Getting SIG for request method "users.getCurrentUser"
-	#
-	# access_token - string access token for requests api methods
-	#
-	# return string
-	#
-	def getSig(access_token)
-		methodStr = 'application_key=' + @options['application_key'] + 'method=users.getCurrentUser'
-		Digest::MD5.hexdigest(methodStr + Digest::MD5.hexdigest(access_token + @options['client_secret']))
-	end
-
-
-	#
 	# Gettion user data
 	#
 	# code - string access code for getting user info
