@@ -87,12 +87,12 @@ class VkAuth
 			:path  => @options["method_url_path"]
 		)
 
-		response JSON.parse Net::HTTP.post_form(getCurrentUserUri, {'fields' => @options['user_fields'], 'uid' => accessRequest['user_id']}).body
+		response = JSON.parse Net::HTTP.post_form(getCurrentUserUri, {'fields' => @options['user_fields'], 'uid' => accessRequest['user_id']}).body
 
-		if response[0].nil?
-			return nil
+		if response.nil?
+			nil
 		else
-			return response[0]
+			response
 		end
 	end
 
