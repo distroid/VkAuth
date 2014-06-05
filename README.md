@@ -10,18 +10,18 @@ Auth class for login vk.com
 	<li>Create action login by vk.com
 <pre>def login_by_vk
 	@options = {
-		'client_id'         => [your_app_client_id],    # required param
-		'redirect_uri'      => [callback_action],       # required param
+		'client_id'         => [your_app_client_id],    # required
+		'redirect_uri'      => [callback_action],       # required
 	}
 	redirect_to VkAuth.new(@options).get_auth_url
 end</pre></li>
 	<li>Create callback action
 <pre>def login_by_vk_callback
 	@options = {
-		'client_id'         => [your_app_client_id],                      # required param
-		'redirect_uri'      => [callback_action],                         # required param
-		'client_secret'     => [your_app_client_secret],                  # required param
-		'user_fields'       => "uid,first_name,last_name,screen_name",    # optional param
+		'client_id'         => [your_app_client_id],                      # required
+		'redirect_uri'      => [callback_action],                         # required
+		'client_secret'     => [your_app_client_secret],                  # required
+		'user_fields'       => "uid,first_name,last_name,screen_name",    # optional
 	}
 	userdata = VkAuth.new(@options).get_user_data(request.GET["code"])
 end</pre></li>
